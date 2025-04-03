@@ -46,6 +46,15 @@ public class ProdutoService {
         Produto produtoBd = produtoRepository.save(produto);
         return this.toDTO(produtoBd);
     }
+        public boolean delete(Long id){
+            if(produtoRepository.existsById(id)){
+                produtoRepository.deleteById(id);
+                return true;
+            }else {
+                return false;
+            }
+        }
+    }
 
 
-}
+
